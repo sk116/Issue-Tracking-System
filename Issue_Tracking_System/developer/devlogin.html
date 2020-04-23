@@ -1,0 +1,36 @@
+<!--{% load static %}-->
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Issue Tracker - Login</title>
+  <link rel="stylesheet" href="../style/css/stylelogin.css">
+  <link rel="icon" href="icon2.png" type="image/icon">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+  <div class="side left">
+    <div class="text-wrapper">
+      <h2>Login</h2>
+      <p>Issue Tracker helps you to manage multiple bug in your software system.</p>
+      <p>Login first to proceed further.</p>
+    </div>
+  </div>
+
+  <div class="side right">
+    <div class="text-wrapper">
+      <form action="../verify.php" method="POST">
+        <lable>Enter Your User Id:</lable>
+        <input type="text" class="input" name="username" placeholder="username@usertype">
+        <lable>Password:</lable>
+        <input type="password" class="input" name="password" placeholder="**********">
+        <lable>User type:</lable>
+        <input type="text" class="input" name="usertype" value="DEVELOPER" placeholder="TESTER">
+        <button class="btn send">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
