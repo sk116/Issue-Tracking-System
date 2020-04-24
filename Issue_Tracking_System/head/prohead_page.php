@@ -22,7 +22,7 @@ if (!isset($_SERVER['HTTP_REFERER']) || !isset($_SESSION['started'])) {
                 window.location.href = "/Issue_Tracking_System/bugs/prohead_bug.php?appName=app4";
             }
             function myFunction5() {
-                window.location.href = "/Issue_Tracking_System/index.html";
+                window.location.href = "/Issue_Tracking_System/unsetsession.php";
             }
         </script>
     </head>

@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SERVER['HTTP_REFERER']) || !isset($_SESSION['started'])) {
     header("Location: /Issue_Tracking_System/index.html");
 }
-try{
+try {
     $dbhandler = new PDO('mysql:host=127.0.0.1;dbname=issue_tracking_system', 'root', '');
     $dbhandler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "select * from bug_info";
@@ -12,7 +12,6 @@ try{
 } catch (Exception $ex) {
     
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +30,11 @@ try{
               href="css/viewBug/vendor/perfect-scrollbar/perfect-scrollbar.css">
         <link rel="stylesheet" type="text/css" href="viewBug/css/util.css">
         <link rel="stylesheet" type="text/css" href="viewBug/css/main.css">
+        <style>
+            th,td{
+                text-align: right;
+            }
+        </style>
     </head>
 
     <body>
@@ -53,23 +57,25 @@ try{
                                     <th class="column9">Bug Priority</th>
                                 </tr>
                             </thead>
-                             <tbody>
+                            <tbody>
                                 <?php
-                                    while ($row = $stmt->fetch()){
-                                        if ($row['vbugStatus'] == $_GET['type']){?>
-                                <tr>
-                                    <td class="column1"><?php echo $row['vbugId'];?></td>
-                                    <td class="column2"><?php echo $row['vbugDesc'];?></td>
-                                    <td class="column3"><?php echo $row['vcurrentBuild'];?></td>
-                                    <td class="column4"><?php echo $row['vdateRaised'];?></td>
-                                    <td class="column5"><?php echo $row['vappName'];?></td>
-                                    <td class="column6"><?php echo $row['vdetectedBy'];?></td>
-                                    <td class="column7"><?php echo $row['vbugStatus'];?></td>
-                                    <td class="column8"><?php echo $row['vfixedBy'];?></td>
-                                    <td class="column9"><?php echo $row['vbugPriority'];?></td>
-                                </tr>
-                                <?php   }
-                                    }?>
+                                while ($row = $stmt->fetch()) {
+                                    if ($row['vbugStatus'] == $_GET['type']) {
+                                        ?>
+                                        <tr>
+                                            <td class="column1"><?php echo $row['vbugId']; ?></td>
+                                            <td class="column2"><?php echo $row['vbugDesc']; ?></td>
+                                            <td class="column3"><?php echo $row['vcurrentBuild']; ?></td>
+                                            <td class="column4"><?php echo $row['vdateRaised']; ?></td>
+                                            <td class="column5"><?php echo $row['vappName']; ?></td>
+                                            <td class="column6"><?php echo $row['vdetectedBy']; ?></td>
+                                            <td class="column7"><?php echo $row['vbugStatus']; ?></td>
+                                            <td class="column8"><?php echo $row['vfixedBy']; ?></td>
+                                            <td class="column9"><?php echo $row['vbugPriority']; ?></td>
+                                        </tr>
+                                    <?php }
+                                }
+                                ?>
                             </tbody> 
                         </table>
                     </div>

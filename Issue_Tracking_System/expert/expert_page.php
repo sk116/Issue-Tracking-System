@@ -13,7 +13,7 @@ if (!isset($_SERVER['HTTP_REFERER']) || !isset($_SESSION['started'])) {
             window.location.href = "/Issue_Tracking_System/bugs/Bugs.php?type=DUPLICATE";
         }
         function myFunction2(){
-            window.location.href = "/Issue_Tracking_System/index.html";
+            window.location.href = "/Issue_Tracking_System/unsetsession.php";
         }
         function myFunction3(){
             window.location.href = "/Issue_Tracking_System/expert/edit_bug/edit.php";

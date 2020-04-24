@@ -35,7 +35,7 @@ if (!isset($_SERVER['HTTP_REFERER']) || !isset($_SESSION['started'])) {
                         <option value="Minor">Minor</option>
                         <option value="Moderate">Moderate</option>
                         <option value="Major">Major</option>
-                        <option value="Game-breaking">Game-breaking</option>
+                        <option value="Huge">Game-breaking</option>
                     </select>
                     <br><br>
                     <p>Application Name :</p>

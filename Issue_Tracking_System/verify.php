@@ -5,7 +5,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 }
 $dbhandler = new PDO('mysql:host=localhost:3306;dbname=issue_tracking_system', 'root', '');
 $dbhandler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = "select * from users where vUsername = ? and vpassword = ? and vposition = ?";
+$sql = "select * from user_info where vuserName = ? and vpassword = ? and vposition = ?";
 $query = $dbhandler->prepare($sql);
 $query->execute(array($_POST['username'], $_POST['password'],$_POST['usertype']));
 $count = $query->rowCount();
@@ -14,6 +14,7 @@ if ($count > 0)
     setcookie('username', $_POST['username']);
     session_start();
     $_SESSION['started'] = 1;
+    $_SESSION['passwd'] = $_POST['password'];
     switch ($_POST['usertype'])
     {
         case 'TESTER':
@@ -30,7 +31,7 @@ if ($count > 0)
             header('Location: head/prohead_page.php');
             break;
         case 'SUPER_ADMIN':
-            header('/Issue_Tracking_System/super_page.html');
+            header('Location: admin/super_page.php');
             break;
         default :
             break;

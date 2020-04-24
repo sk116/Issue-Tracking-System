@@ -30,6 +30,11 @@ try{
               href="css/viewBug/vendor/perfect-scrollbar/perfect-scrollbar.css">
         <link rel="stylesheet" type="text/css" href="viewBug/css/util.css">
         <link rel="stylesheet" type="text/css" href="viewBug/css/main.css">
+        <style>
+            th,td{
+                text-align: right;
+            }
+        </style>
     </head>
 
     <body>
